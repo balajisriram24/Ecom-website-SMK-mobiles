@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block title %}Offers | SMK Mobiles & Photography{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Special Offers</p>
+    <h1>Exclusive savings for every kind of customer.</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container offer-grid">
+    {% for offer in offers %}
+    <article class="glass-card offer-card" data-aos="fade-up">
+      <h3>{{ offer.title }}</h3>
+      <p>{{ offer.desc }}</p>
+      <a href="{{ url_for('contact') }}" class="btn btn-primary">Claim Offer</a>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

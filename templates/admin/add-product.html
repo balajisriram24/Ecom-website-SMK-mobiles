@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% block title %}Add Product | SMK Mobiles{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Admin Panel</p>
+    <h1>Add Product</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="glass-card admin-form-card">
+      <form method="post" enctype="multipart/form-data" class="contact-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="brand">Brand</label>
+          <input id="brand" name="brand" required />
+        </div>
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input id="price" name="price" type="number" required />
+        </div>
+        <div class="form-group">
+          <label for="offer_price">Offer Price</label>
+          <input id="offer_price" name="offer_price" type="number" required />
+        </div>
+        <div class="form-group">
+          <label for="availability">Availability</label>
+          <input id="availability" name="availability" value="In Stock" />
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <input id="category" name="category" value="Mobile" />
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="image">Upload Image</label>
+          <input id="image" name="image" type="file" />
+        </div>
+        <div class="form-group">
+          <label for="image_url">Image URL</label>
+          <input id="image_url" name="image_url" />
+        </div>
+        <button type="submit" class="btn btn-primary">Save Product</button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

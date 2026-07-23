@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block title %}Testimonials | SMK Mobiles & Photography{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Customer Reviews</p>
+    <h1>Our customers trust us for quality, support, and experience.</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container testimonial-grid">
+    {% for testimonial in testimonials %}
+    <article class="glass-card testimonial-card" data-aos="fade-up">
+      <div class="stars">
+        {% for i in range(testimonial.rating) %}
+        <i class="fas fa-star"></i>
+        {% endfor %}
+      </div>
+      <p>“{{ testimonial.quote }}”</p>
+      <h3>{{ testimonial.name }}</h3>
+      <span>{{ testimonial.place }}</span>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block title %}Brands | SMK Mobiles & Photography{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Trusted Brands</p>
+    <h1>Explore our premium range of smartphone and accessory brands.</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container brand-slider" data-aos="fade-up">
+    <div class="brand-track">
+      {% for brand_name in brands + brands %}
+      <div class="brand-chip">{{ brand_name }}</div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

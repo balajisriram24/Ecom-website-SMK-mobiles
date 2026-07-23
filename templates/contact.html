@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% block title %}Contact | SMK Mobiles & Photography{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Contact Us</p>
+    <h1>Get in touch for products, services, repairs, or photography bookings.</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container contact-grid">
+    <div class="glass-card" data-aos="fade-right">
+      <h3>Visit Our Store</h3>
+      <p><i class="fas fa-map-marker-alt"></i> {{ address }}</p>
+      <p><i class="fas fa-phone"></i> {{ phone }} / {{ phone2 }}</p>
+      <p><i class="fas fa-envelope"></i> {{ email }}</p>
+      <p><i class="fas fa-clock"></i> Mon-Sun: 9:00 AM to 9:00 PM</p>
+      <div class="contact-actions">
+        <a href="https://wa.me/8608263979" class="btn btn-primary">WhatsApp</a>
+        <a href="tel:8608263979" class="btn btn-secondary">Call Now</a>
+      </div>
+    </div>
+
+    <div class="glass-card" data-aos="fade-left">
+      <form class="contact-form" method="post">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="map-placeholder" data-aos="fade-up">
+      <p>Google Map Embed Placeholder</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

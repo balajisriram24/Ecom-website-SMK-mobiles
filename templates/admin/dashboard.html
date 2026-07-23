@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% block title %}Admin Dashboard | SMK Mobiles{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container admin-header">
+    <div>
+      <p class="eyebrow">Admin Panel</p>
+      <h1>Dashboard</h1>
+    </div>
+    <div class="admin-actions">
+      <a href="{{ url_for('add_product') }}" class="btn btn-primary">Add Product</a>
+      <a href="{{ url_for('logout') }}" class="btn btn-secondary">Logout</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="product-grid">
+      {% for product in products %}
+      <article class="card product-card" data-aos="zoom-in">
+        <img src="{{ product.image }}" alt="{{ product.name }}" loading="lazy">
+        <div class="card-body">
+          <h3>{{ product.name }}</h3>
+          <p>{{ product.brand }}</p>
+          <p>₹{{ '{:,.0f}'.format(product.offer_price) }}</p>
+          <div class="card-actions">
+            <a href="{{ url_for('edit_product', product_id=product.id) }}" class="btn btn-secondary">Edit</a>
+            <form action="{{ url_for('delete_product', product_id=product.id) }}" method="post" style="display:inline;">
+              <button type="submit" class="btn btn-primary">Delete</button>
+            </form>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

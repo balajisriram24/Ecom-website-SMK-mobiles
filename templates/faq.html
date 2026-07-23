@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block title %}FAQ | SMK Mobiles & Photography{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Frequently Asked Questions</p>
+    <h1>Quick answers about products, services, and support.</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container faq-list">
+    {% for item in faqs %}
+    <details class="glass-card faq-item" data-aos="fade-up">
+      <summary>{{ item.question }}</summary>
+      <p>{{ item.answer }}</p>
+    </details>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

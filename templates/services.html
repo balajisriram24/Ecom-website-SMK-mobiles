@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block title %}Services | SMK Mobiles & Photography{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Our Services</p>
+    <h1>Everything you need for devices, repairs, and memorable photography.</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container service-grid">
+    {% for service in services %}
+    <article class="glass-card service-card" data-aos="fade-up">
+      <div class="icon-wrap"><i class="{{ service.icon }}"></i></div>
+      <h3>{{ service.title }}</h3>
+      <p>{{ service.desc }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

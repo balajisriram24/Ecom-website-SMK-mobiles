@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block title %}Gallery | SMK Mobiles & Photography{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Photo Gallery</p>
+    <h1>Showcase of our photography work and studio highlights.</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container gallery-grid">
+    {% for image in images %}
+    <figure class="gallery-item" data-aos="zoom-in">
+      <img src="{{ image.url }}" alt="{{ image.title }}" loading="lazy" />
+      <figcaption>{{ image.title }}</figcaption>
+    </figure>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

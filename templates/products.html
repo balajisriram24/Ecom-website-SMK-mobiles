@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+
+{% block title %}Products | SMK Mobiles & Photography{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Our Catalog</p>
+    <h1>Browse premium devices, accessories, and offers.</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <form class="filters" method="get" data-aos="fade-up">
+      <input type="text" name="search" placeholder="Search products" value="{{ search }}" />
+      <select name="brand">
+        <option value="">All Brands</option>
+        {% for brand_name in brands %}
+        <option value="{{ brand_name }}" {% if brand==brand_name %}selected{% endif %}>{{ brand_name }}</option>
+        {% endfor %}
+      </select>
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </form>
+
+    <div class="product-grid">
+      {% for product in products %}
+      <article class="card product-card" data-aos="zoom-in">
+        <img src="{{ product.image }}" alt="{{ product.name }}" loading="lazy">
+        <div class="card-body">
+          <p class="brand-pill">{{ product.brand }}</p>
+          <h3>{{ product.name }}</h3>
+          <p class="description">{{ product.description }}</p>
+          <div class="price-row">
+            <span class="price">₹{{ '{:,.0f}'.format(product.offer_price) }}</span>
+            <span class="old-price">₹{{ '{:,.0f}'.format(product.price) }}</span>
+          </div>
+          <div class="product-meta">
+            <span class="availability">{{ product.availability }}</span>
+          </div>
+          <div class="card-actions">
+            <a href="{{ url_for('contact') }}" class="btn btn-primary">Buy Now</a>
+            <a href="https://wa.me/8608263979?text=Hello%20SMK%20Mobiles%2C%20I%20want%20to%20enquire%20about%20{{ product.name }}" class="btn btn-secondary">WhatsApp</a>
+          </div>
+        </div>
+      </article>
+      {% else %}
+      <div class="glass-card empty-state">
+        <p>No products match your search yet.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
